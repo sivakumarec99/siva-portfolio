@@ -4,8 +4,8 @@
 //
 //  Created by JIDTP1408 on 27/02/25.
 //
-
 import SwiftUI
+import Firebase
 
 class ProductViewModel: ObservableObject {
     @Published var products: [Product] = []
@@ -26,8 +26,48 @@ class ProductViewModel: ObservableObject {
     }
 
     // MARK: - Add Product
-    func addProduct(name: String, description: String, price: Double, imageUrl: String?) {
-        let newProduct = Product(id: UUID().uuidString, name: name, description: description, price: price, imageUrl: imageUrl, createdAt: Date())
+    func addProduct(
+        name: String,
+        description: String,
+        price: Double,
+        imageUrls: [String],
+        threeDModelUrl: String?,
+        view360Urls: [String]?,
+        category: String,
+        stock: Int,
+        rating: Double,
+        discount: Double,
+        seller: SellerDetails,
+        specifications: [String: String],
+        variations: [ProductVariation],
+        isFeatured: Bool,
+        isAvailable: Bool,
+        deliveryDetails: DeliveryDetails
+    ) {
+        let newProduct = Product(
+            id: UUID().uuidString,
+            name: name,
+            description: description,
+            price: price,
+            imageUrls: imageUrls,
+            threeDModelUrl: threeDModelUrl,
+            view360Urls: view360Urls,
+            category: category,
+            stock: stock,
+            rating: rating,
+            reviews: [],
+            ratingBreakdown: RatingBreakdown(averageRating: rating, totalReviews: 0, fiveStar: 0, fourStar: 0, threeStar: 0, twoStar: 0, oneStar: 0),
+            discount: discount,
+            createdAt: Date(),
+            seller: seller,
+            specifications: specifications,
+            variations: variations,
+            isFeatured: isFeatured,
+            isAvailable: isAvailable,
+            deliveryDetails: deliveryDetails,
+            similarProducts: []
+        )
+
         firestoreService.addProduct(newProduct) { result in
             DispatchQueue.main.async {
                 switch result {
@@ -71,6 +111,15 @@ class ProductViewModel: ObservableObject {
     // MARK: - Upload Image
     func uploadImage(image: UIImage, completion: @escaping (Result<String, Error>) -> Void) {
         firestoreService.uploadImage(image: image) { result in
+            DispatchQueue.main.async {
+                completion(result)
+            }
+        }
+    }
+
+    // MARK: - Download Image
+    func downloadImage(urlString: String, completion: @escaping (Result<UIImage, Error>) -> Void) {
+        firestoreService.downloadImage(urlString: urlString) { result in
             DispatchQueue.main.async {
                 completion(result)
             }

@@ -15,6 +15,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
     return true
   }
 }
+
 @main
 struct FireStoreManagerApp: App {
     @StateObject private var authViewModel = AuthViewModel()

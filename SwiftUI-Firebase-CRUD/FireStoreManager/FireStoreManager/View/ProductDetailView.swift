@@ -17,41 +17,113 @@ struct ProductDetailView: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 16) {
-                if let imageUrl = product.imageUrl, let url = URL(string: imageUrl) {
+                // Product Images
+                if !product.imageUrls.isEmpty, let firstImageUrl = product.imageUrls.first, let url = URL(string: firstImageUrl) {
                     AsyncImage(url: url) { phase in
                         switch phase {
                         case .empty:
                             ProgressView()
                         case .success(let image):
-                            image.resizable().scaledToFit().frame(height: 250).cornerRadius(10)
+                            image
+                                .resizable()
+                                .scaledToFit()
+                                .frame(maxWidth: .infinity, maxHeight: 300)
+                                .cornerRadius(10)
                         case .failure:
-                            Image(systemName: "photo").resizable().scaledToFit().frame(height: 250)
+                            Image(systemName: "photo")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(height: 250)
                         @unknown default:
                             EmptyView()
                         }
                     }
                 } else {
-                    Image(systemName: "photo").resizable().scaledToFit().frame(height: 250)
+                    Image(systemName: "photo")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(height: 250)
+                        .foregroundColor(.gray)
                 }
 
-                Text(product.name).font(.title).fontWeight(.bold)
-                Text("$\(product.price, specifier: "%.2f")").font(.title2).foregroundColor(.green)
-                Text(product.description).font(.body).foregroundColor(.secondary)
+                // Product Details
+                Text(product.name)
+                    .font(.title)
+                    .fontWeight(.bold)
+                    .foregroundColor(.primary)
+
+                Text("$\(product.price, specifier: "%.2f")")
+                    .font(.title2)
+                    .foregroundColor(.green)
+                    .bold()
+                
+                if product.discount > 0 {
+                    Text("Discount: \(product.discount * 100, specifier: "%.0f")% OFF")
+                        .font(.headline)
+                        .foregroundColor(.red)
+                }
+
+                Divider()
+
+                Text("Category: \(product.category)")
+                    .font(.subheadline)
+                    .foregroundColor(.secondary)
+
+                Text(product.description)
+                    .font(.body)
+                    .foregroundColor(.secondary)
+                    .multilineTextAlignment(.leading)
+
+                Divider()
+
+                HStack {
+                    Text("Stock: \(product.stock)")
+                        .font(.subheadline)
+                        .foregroundColor(product.stock > 0 ? .blue : .red)
+                        .bold()
+                    
+                    Spacer()
+                    
+                    Text("Rating: \(product.rating, specifier: "%.1f") ⭐️")
+                        .font(.subheadline)
+                        .bold()
+                }
+                
+                // Seller Info
+                if !product.seller.sellerName.isEmpty {
+                    VStack(alignment: .leading, spacing: 4) {
+                        Divider()
+                        Text("Seller: \(product.seller.sellerName)")
+                            .font(.headline)
+                        Text("Contact: \(product.seller.contactEmail)")
+                            .font(.subheadline)
+                            .foregroundColor(.secondary)
+                    }
+                }
 
                 Spacer()
 
+                // Action Buttons
                 HStack {
-                    Button("Edit") {
-                        showEditScreen.toggle()
+                    Button(action: { showEditScreen.toggle() }) {
+                        Label("Edit", systemImage: "pencil.circle.fill")
+                            .padding()
+                            .frame(maxWidth: .infinity)
+                            .background(Color.blue)
+                            .foregroundColor(.white)
+                            .cornerRadius(10)
                     }
-                    .buttonStyle(.borderedProminent)
 
-                    Button("Delete") {
-                        showDeleteConfirmation.toggle()
+                    Button(action: { showDeleteConfirmation.toggle() }) {
+                        Label("Delete", systemImage: "trash.fill")
+                            .padding()
+                            .frame(maxWidth: .infinity)
+                            .background(Color.red)
+                            .foregroundColor(.white)
+                            .cornerRadius(10)
                     }
-                    .buttonStyle(.bordered)
-                    .foregroundColor(.red)
                 }
+                .padding(.top, 10)
             }
             .padding()
         }
@@ -67,6 +139,7 @@ struct ProductDetailView: View {
                     }
                 } label: {
                     Image(systemName: "ellipsis.circle")
+                        .font(.title2)
                 }
             }
         }
@@ -84,4 +157,3 @@ struct ProductDetailView: View {
         }
     }
 }
-

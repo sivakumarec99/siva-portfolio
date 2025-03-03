@@ -33,6 +33,7 @@
 		01DE8C2D2D70B05F00E354A7 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01DE8C2C2D70B05F00E354A7 /* SignInView.swift */; };
 		01DE8C302D70B0BD00E354A7 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01DE8C2F2D70B0BD00E354A7 /* ProfileView.swift */; };
 		01DE8C322D70B12F00E354A7 /* HomeTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01DE8C312D70B12F00E354A7 /* HomeTabView.swift */; };
+		01FDF7DE2D75B121003669A0 /* AddProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01FDF7DD2D75B121003669A0 /* AddProductView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +79,7 @@
 		01DE8C2C2D70B05F00E354A7 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		01DE8C2F2D70B0BD00E354A7 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		01DE8C312D70B12F00E354A7 /* HomeTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabView.swift; sourceTree = "<group>"; };
+		01FDF7DD2D75B121003669A0 /* AddProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -200,6 +202,7 @@
 				01DE8C1E2D70A75E00E354A7 /* ProductDetailView.swift */,
 				01DE8C202D70A88300E354A7 /* ProductFormView.swift */,
 				01DE8C312D70B12F00E354A7 /* HomeTabView.swift */,
+				01FDF7DD2D75B121003669A0 /* AddProductView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -403,6 +406,7 @@
 				01DE8C1D2D70A38D00E354A7 /* ProductListView.swift in Sources */,
 				01DE8C1B2D70A35400E354A7 /* ProductViewModel.swift in Sources */,
 				01DE8BE02D7099E400E354A7 /* Persistence.swift in Sources */,
+				01FDF7DE2D75B121003669A0 /* AddProductView.swift in Sources */,
 				01DE8C162D70A28B00E354A7 /* FirestoreService.swift in Sources */,
 				01DE8BD92D7099E200E354A7 /* ContentView.swift in Sources */,
 				01DE8C262D70AFE500E354A7 /* AuthService.swift in Sources */,
