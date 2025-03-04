@@ -146,7 +146,7 @@ struct ProductDetailView: View {
         .alert("Delete Product", isPresented: $showDeleteConfirmation) {
             Button("Cancel", role: .cancel) { }
             Button("Delete", role: .destructive) {
-                viewModel.deleteProduct(productId: product.id)
+                viewModel.deleteProduct(productId: product.id!)
                 presentationMode.wrappedValue.dismiss()
             }
         } message: {

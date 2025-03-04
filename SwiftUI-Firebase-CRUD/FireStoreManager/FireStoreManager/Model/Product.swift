@@ -6,15 +6,16 @@
 //
 
 import Foundation
+import FirebaseFirestore
 
 struct Product: Identifiable, Codable {
-    var id: String
+    @DocumentID var id: String?
     var name: String
     var description: String
     var price: Double
-    var imageUrls: [String]  // Multiple images
-    var threeDModelUrl: String?  // Link to a 3D model file (GLTF, USDZ)
-    var view360Urls: [String]?  // List of images for a 360-degree view
+    var imageUrls: [String]
+    var threeDModelUrl: String?
+    var view360Urls: [String]?
     var category: String
     var stock: Int
     var rating: Double
@@ -22,13 +23,23 @@ struct Product: Identifiable, Codable {
     var ratingBreakdown: RatingBreakdown
     var discount: Double
     var createdAt: Date
-    var seller: SellerDetails  // Seller information
-    var specifications: [String: String] // Key-value pairs (e.g., "Material": "Cotton")
-    var variations: [ProductVariation] // Different sizes/colors
-    var isFeatured: Bool  // Highlighted products
-    var isAvailable: Bool  // Whether the product is active
-    var deliveryDetails: DeliveryDetails  // Estimated delivery, shipping costs
-    var similarProducts: [SimilarProduct]  // Recommended products
+    var seller: SellerDetails
+    var specifications: [String: String]
+    var variations: [ProductVariation]
+    var isFeatured: Bool
+    var isAvailable: Bool
+    var deliveryDetails: DeliveryDetails
+    var similarProducts: [SimilarProduct]
+    var isPinned: Bool = false
+    var dealEndTime: Date? // Optional deal end time
+    var isFavorite: Bool = false
+
+    // Computed property to calculate time left for deal
+    var timeLeft: TimeInterval? {
+        guard let dealEndTime = dealEndTime else { return nil }
+        let remainingTime = dealEndTime.timeIntervalSince(Date())
+        return remainingTime > 0 ? remainingTime : nil // If time is over, return nil
+    }
 }
 
 struct ProductVariation: Codable {

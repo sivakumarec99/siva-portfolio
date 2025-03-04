@@ -14,7 +14,7 @@ struct ContentView: View {
 
     var body: some View {
         if authViewModel.isAuthenticated {
-            HomeTabView()
+            HomeTabView().environmentObject(authViewModel)
         } else {
             SignInView()
         }

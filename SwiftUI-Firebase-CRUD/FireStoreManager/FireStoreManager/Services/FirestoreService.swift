@@ -61,6 +61,8 @@ struct FirestoreService {
             ]},
             "isFeatured": product.isFeatured,
             "isAvailable": product.isAvailable,
+            "isPinned": product.isPinned,  // ✅ Added pinned status
+            "isFavorite": product.isFavorite,  // ✅ Added favorite status
             "deliveryDetails": [
                 "estimatedDelivery": product.deliveryDetails.estimatedDelivery,
                 "shippingCost": product.deliveryDetails.shippingCost,
@@ -75,7 +77,7 @@ struct FirestoreService {
             ]}
         ]
         
-        db.collection("products").document(product.id).setData(data) { error in
+        db.collection("products").document(product.id!).setData(data) { error in
             if let error = error {
                 completion(.failure(error))
             } else {
@@ -177,6 +179,7 @@ struct FirestoreService {
     // MARK: - Update Product
        func updateProduct(_ product: Product, completion: @escaping (Result<Void, Error>) -> Void) {
            let data: [String: Any] = [
+               "id": product.id,
                "name": product.name,
                "description": product.description,
                "price": product.price,
@@ -186,13 +189,60 @@ struct FirestoreService {
                "category": product.category,
                "stock": product.stock,
                "rating": product.rating,
+               "reviews": product.reviews.map { [
+                   "userId": $0.userId,
+                   "username": $0.username,
+                   "comment": $0.comment,
+                   "stars": $0.stars,
+                   "createdAt": $0.createdAt
+               ]},
+               "ratingBreakdown": [
+                   "averageRating": product.ratingBreakdown.averageRating,
+                   "totalReviews": product.ratingBreakdown.totalReviews,
+                   "fiveStar": product.ratingBreakdown.fiveStar,
+                   "fourStar": product.ratingBreakdown.fourStar,
+                   "threeStar": product.ratingBreakdown.threeStar,
+                   "twoStar": product.ratingBreakdown.twoStar,
+                   "oneStar": product.ratingBreakdown.oneStar
+               ],
                "discount": product.discount,
+               "createdAt": product.createdAt,
+               "seller": [
+                   "sellerId": product.seller.sellerId,
+                   "sellerName": product.seller.sellerName,
+                   "contactEmail": product.seller.contactEmail,
+                   "contactPhone": product.seller.contactPhone ?? "",
+                   "address": product.seller.address ?? "",
+                   "sellerRating": product.seller.sellerRating,
+                   "verified": product.seller.verified
+               ],
+               "specifications": product.specifications,
+               "variations": product.variations.map { [
+                   "variationId": $0.variationId,
+                   "color": $0.color ?? "",
+                   "size": $0.size ?? "",
+                   "stock": $0.stock,
+                   "additionalPrice": $0.additionalPrice
+               ]},
                "isFeatured": product.isFeatured,
                "isAvailable": product.isAvailable,
-               "updatedAt": Timestamp(date: Date())
+               "isPinned": product.isPinned,  // ✅ Added pinned status
+               "isFavorite": product.isFavorite,  // ✅ Added favorite status
+               "deliveryDetails": [
+                   "estimatedDelivery": product.deliveryDetails.estimatedDelivery,
+                   "shippingCost": product.deliveryDetails.shippingCost,
+                   "deliveryStatus": product.deliveryDetails.deliveryStatus.rawValue
+               ],
+               "similarProducts": product.similarProducts.map { [
+                   "id": $0.id,
+                   "name": $0.name,
+                   "price": $0.price,
+                   "imageUrl": $0.imageUrl,
+                   "rating": $0.rating
+               ]}
            ]
 
-           db.collection("products").document(product.id).updateData(data) { error in
+           db.collection("products").document(product.id!).updateData(data) { error in
                if let error = error {
                    completion(.failure(error))
                } else {
@@ -212,6 +262,22 @@ struct FirestoreService {
            }
        }
 
+    func toggleFavorite(product: Product,newFavoriteStatus:Bool, completion: @escaping (Result<Void, Error>) -> Void) {
+           guard let productId = product.id else { return }
+           // Update Firestore
+           db.collection("products").document(productId).updateData([
+               "isFavorite": newFavoriteStatus
+           ]) { error in
+               if let error = error {
+                   print("Error updating favorite status: \(error.localizedDescription)")
+                   completion(.failure(error))
+               }else{
+                   completion(.success(()))
+
+               }
+           }
+       }
+    
        // MARK: - Upload Image to Firebase Storage
        func uploadImage(image: UIImage, completion: @escaping (Result<String, Error>) -> Void) {
            guard let imageData = image.jpegData(compressionQuality: 0.7) else {
