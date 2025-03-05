@@ -39,6 +39,7 @@
 		01A4ABD62D76E9D9009D6AB0 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A4ABD52D76E9D9009D6AB0 /* ImagePicker.swift */; };
 		01A4ABD82D7703A6009D6AB0 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A4ABD72D7703A6009D6AB0 /* Helper.swift */; };
 		01A4ABDB2D77165E009D6AB0 /* FavoriteProductsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A4ABDA2D77165E009D6AB0 /* FavoriteProductsView.swift */; };
+		01A4ABDD2D782D18009D6AB0 /* AddProductViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A4ABDC2D782D18009D6AB0 /* AddProductViewModel.swift */; };
 		01DE8BD72D7099E200E354A7 /* FireStoreManagerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01DE8BD62D7099E200E354A7 /* FireStoreManagerApp.swift */; };
 		01DE8BD92D7099E200E354A7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01DE8BD82D7099E200E354A7 /* ContentView.swift */; };
 		01DE8BDB2D7099E400E354A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 01DE8BDA2D7099E400E354A7 /* Assets.xcassets */; };
@@ -89,6 +90,7 @@
 		01A4ABD52D76E9D9009D6AB0 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		01A4ABD72D7703A6009D6AB0 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		01A4ABDA2D77165E009D6AB0 /* FavoriteProductsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteProductsView.swift; sourceTree = "<group>"; };
+		01A4ABDC2D782D18009D6AB0 /* AddProductViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductViewModel.swift; sourceTree = "<group>"; };
 		01DE8BD32D7099E200E354A7 /* FireStoreManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FireStoreManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		01DE8BD62D7099E200E354A7 /* FireStoreManagerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireStoreManagerApp.swift; sourceTree = "<group>"; };
 		01DE8BD82D7099E200E354A7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -288,6 +290,7 @@
 				01DE8C1A2D70A35400E354A7 /* ProductViewModel.swift */,
 				01DE8C272D70B00A00E354A7 /* AuthViewModel.swift */,
 				01A4ABD32D76D30A009D6AB0 /* FirebaseStorageManager.swift */,
+				01A4ABDC2D782D18009D6AB0 /* AddProductViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -541,6 +544,7 @@
 				01DE8C322D70B12F00E354A7 /* HomeTabView.swift in Sources */,
 				01DE8C302D70B0BD00E354A7 /* ProfileView.swift in Sources */,
 				01A4ABDB2D77165E009D6AB0 /* FavoriteProductsView.swift in Sources */,
+				01A4ABDD2D782D18009D6AB0 /* AddProductViewModel.swift in Sources */,
 				01DE8BE32D7099E400E354A7 /* FireStoreManager.xcdatamodeld in Sources */,
 				01DE8C2D2D70B05F00E354A7 /* SignInView.swift in Sources */,
 				01A4ABD22D76D2AE009D6AB0 /* VideoThumbnailView.swift in Sources */,

@@ -10,50 +10,25 @@ import SwiftUI
 struct ProductListView: View {
     @StateObject private var viewModel = ProductViewModel()
     @State private var isAddingProduct = false
-    @State private var showFavorites = false  // Controls Favorite Products View
-    @State private var selectedProductIds = Set<String>()  // For selection highlighting
-    @State private var timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+    @State private var showFavorites = false
+    @State private var selectedProductIds = Set<String>()
+    @State private var isGridView = false  // ✅ Toggle between List and Grid
+
+    private let gridColumns = [
+        GridItem(.flexible(), spacing: 10),
+        GridItem(.flexible(), spacing: 10)
+    ]
+
     var body: some View {
         NavigationView {
             ZStack {
-                LinearGradient(gradient: Gradient(colors: [.blue.opacity(0.2), .white]), startPoint: .top, endPoint: .bottom)
-                    .ignoresSafeArea()
+                backgroundGradient
                 
                 VStack {
                     if viewModel.products.isEmpty {
-                        EmptyStateView(message:"No products available")
+                        EmptyStateView(message: "No products available")
                     } else {
-                        List {
-                            ForEach(viewModel.sortedProducts()) { product in
-                                ProductRowView(
-                                    viewModel:viewModel,
-                                    product: product,
-                                    isSelected: selectedProductIds.contains(product.id!),
-                                    toggleFavorite: { viewModel.toggleFavorite(product) },
-                                    pinProduct: { viewModel.pinProduct(product) }
-                                )
-                                .swipeActions(edge: .leading) {
-                                    Button {
-                                        viewModel.addToCart(product)
-                                    } label: {
-                                        Label("Add to Cart", systemImage: "cart.fill")
-                                    }
-                                    .tint(.green)
-                                }
-                                .swipeActions(edge: .trailing) {
-                                    Button(role: .destructive) {
-                                        viewModel.deleteProduct(productId: product.id!)
-                                    } label: {
-                                        Label("Delete", systemImage: "trash")
-                                    }
-                                }
-                                .onTapGesture {
-                                    toggleSelection(for: product)
-                                }
-                                .animation(.easeInOut, value: selectedProductIds)
-                            }
-                        }
-                        .listStyle(PlainListStyle())
+                        viewSwitcher
                     }
                 }
                 .onAppear {
@@ -61,22 +36,14 @@ struct ProductListView: View {
                 }
                 .navigationTitle("Products")
                 .toolbar {
-                    ToolbarItem(placement: .navigationBarTrailing) {
-                        HStack{
-                            Button(action: {
-                                isAddingProduct.toggle()
-                            }) {
-                                HStack {
-                                    Image(systemName: "plus.circle.fill")
-                                }
+                    ToolbarItem(placement: .navigationBarLeading) {
+                        Button(action: { isGridView.toggle() }) {
+                            Image(systemName: isGridView ? "list.bullet" : "square.grid.2x2.fill")
                                 .font(.headline)
-                                .foregroundColor(.blue)
-                            }
-                            Button(action: { showFavorites.toggle() }) {
-                                Image(systemName: "heart.fill")
-                                    .foregroundColor(.red)
-                            }
                         }
+                    }
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        toolbarButtons
                     }
                 }
                 .sheet(isPresented: $showFavorites) {
@@ -88,8 +55,100 @@ struct ProductListView: View {
             }
         }
     }
-    
-    
+
+    private var backgroundGradient: some View {
+        LinearGradient(gradient: Gradient(colors: [.blue.opacity(0.2), .white]), startPoint: .top, endPoint: .bottom)
+            .ignoresSafeArea()
+    }
+
+    // ✅ Toggle between List and Grid View
+    private var viewSwitcher: some View {
+        Group {
+            if isGridView {
+                LazyVGrid(columns: gridColumns, spacing: 15) {
+                    ForEach(viewModel.sortedProducts(), id: \.id) { product in
+                        gridItem(for: product)
+                    }
+                }
+                .padding(.horizontal)
+            } else {
+                List(viewModel.sortedProducts(), id: \.id) { product in
+                    productRow(for: product)
+                }
+                .listStyle(PlainListStyle())
+            }
+        }
+        .animation(.easeInOut, value: isGridView)
+    }
+
+    // ✅ Grid View Item
+    private func gridItem(for product: Product) -> some View {
+        VStack {
+            if let imageUrl = product.imageUrls.first, let url = URL(string: imageUrl) {
+                AsyncImage(url: url) { image in
+                    image.resizable()
+                        .scaledToFill()
+                        .frame(width: 150, height: 150)
+                        .clipShape(RoundedRectangle(cornerRadius: 10))
+                } placeholder: {
+                    ProgressView()
+                        .frame(width: 150, height: 150)
+                }
+            } else {
+                Image(systemName: "photo")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 150, height: 150)
+                    .foregroundColor(.gray)
+            }
+            
+            VStack {
+                Text(product.name)
+                    .font(.headline)
+                    .foregroundColor(.primary)
+                    .multilineTextAlignment(.center)
+                    .frame(maxWidth: .infinity)
+                Text("$\(product.price, specifier: "%.2f")")
+                    .font(.subheadline)
+                    .foregroundColor(.green)
+            }
+            .padding(.horizontal)
+        }
+        .padding()
+        .background(RoundedRectangle(cornerRadius: 10).fill(Color.white).shadow(radius: 3))
+        .onTapGesture {
+            toggleSelection(for: product)
+        }
+    }
+
+    // ✅ List Row View
+    private func productRow(for product: Product) -> some View {
+        NavigationLink(destination: AddProductView(viewModel: viewModel, product: product)) {
+            ProductRowView(
+                viewModel: viewModel,
+                product: product,
+                isSelected: selectedProductIds.contains(product.id ?? ""),
+                toggleFavorite: { viewModel.toggleFavorite(product) },
+                pinProduct: { viewModel.pinProduct(product) }
+            )
+            .padding(.vertical, 8)
+        }
+    }
+
+    private var toolbarButtons: some View {
+        HStack {
+            Button(action: { isAddingProduct.toggle() }) {
+                Image(systemName: "plus.circle.fill")
+                    .font(.headline)
+                    .foregroundColor(.blue)
+            }
+            Button(action: { showFavorites.toggle() }) {
+                Image(systemName: "heart.fill")
+                    .foregroundColor(.red)
+            }
+        }
+    }
+
     private func toggleSelection(for product: Product) {
         if selectedProductIds.contains(product.id!) {
             selectedProductIds.remove(product.id!)

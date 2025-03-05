@@ -8,6 +8,8 @@ import SwiftUI
 
 class ProductViewModel: ObservableObject {
     @Published var products: [Product] = []
+    @Published var selectedProduct: Product?
+    @Published var isEditViewPresented = false
     private let firestoreService = FirestoreService()
 
     var favoriteProducts: [Product] {
