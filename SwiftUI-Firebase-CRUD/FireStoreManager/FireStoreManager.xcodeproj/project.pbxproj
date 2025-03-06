@@ -242,7 +242,6 @@
 				01DE8C0A2D709DB700E354A7 /* Resources */,
 				01DE8C092D709D9D00E354A7 /* Utils */,
 				01DE8C0B2D709F1F00E354A7 /* GoogleService-Info.plist */,
-				01DE8BDA2D7099E400E354A7 /* Assets.xcassets */,
 				01DE8BDF2D7099E400E354A7 /* Persistence.swift */,
 				01DE8BE12D7099E400E354A7 /* FireStoreManager.xcdatamodeld */,
 				01DE8BDC2D7099E400E354A7 /* Preview Content */,
@@ -298,11 +297,11 @@
 		01DE8C072D709B6F00E354A7 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				01A4AB952D75DF03009D6AB0 /* ProductList */,
 				01A4ABD92D771643009D6AB0 /* Favorite */,
 				01A4AB982D75DF43009D6AB0 /* MainTab */,
 				01A4AB972D75DF34009D6AB0 /* AddProduct */,
 				01A4AB962D75DF1A009D6AB0 /* ProductView */,
-				01A4AB952D75DF03009D6AB0 /* ProductList */,
 				01DE8C2E2D70B0A200E354A7 /* Profile */,
 				01DE8C292D70B03200E354A7 /* Auth */,
 			);
@@ -321,6 +320,7 @@
 		01DE8C092D709D9D00E354A7 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				01DE8BDA2D7099E400E354A7 /* Assets.xcassets */,
 				01A4ABCF2D76D28B009D6AB0 /* MediaPickerView.swift */,
 				01A4ABD12D76D2AE009D6AB0 /* VideoThumbnailView.swift */,
 				01A4ABD52D76E9D9009D6AB0 /* ImagePicker.swift */,
