@@ -12,35 +12,18 @@ class AuthService {
     static let shared = AuthService()
 
     // MARK: - Sign Up
-    func signUp(email: String, password: String, completion: @escaping (Result<Void, Error>) -> Void) {
-        Auth.auth().createUser(withEmail: email, password: password) { result, error in
-            if let error = error {
-                completion(.failure(error))
-            } else {
-                completion(.success(()))
-            }
-        }
+    func signUp(email: String, password: String) async throws {
+        try await Auth.auth().createUser(withEmail: email, password: password)
     }
 
     // MARK: - Sign In
-    func signIn(email: String, password: String, completion: @escaping (Result<Void, Error>) -> Void) {
-        Auth.auth().signIn(withEmail: email, password: password) { result, error in
-            if let error = error {
-                completion(.failure(error))
-            } else {
-                completion(.success(()))
-            }
-        }
+    func signIn(email: String, password: String) async throws {
+        try await Auth.auth().signIn(withEmail: email, password: password)
     }
 
     // MARK: - Sign Out
-    func signOut(completion: @escaping (Result<Void, Error>) -> Void) {
-        do {
-            try Auth.auth().signOut()
-            completion(.success(()))
-        } catch {
-            completion(.failure(error))
-        }
+    func signOut() async throws {
+        try Auth.auth().signOut()
     }
 
     // MARK: - Check Authentication Status

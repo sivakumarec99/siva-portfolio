@@ -6,9 +6,11 @@
 //
 
 import Foundation
+import FirebaseFirestore
 
 struct UserProfile: Identifiable, Codable {
-    var id: String  // Firebase UID
+    @DocumentID var id: String?  // Firebase UID
+
     var fullName: String
     var username: String
     var email: String
