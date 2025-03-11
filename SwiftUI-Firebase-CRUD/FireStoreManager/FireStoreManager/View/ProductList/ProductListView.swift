@@ -21,9 +21,7 @@ struct ProductListView: View {
 
     var body: some View {
         NavigationView {
-            ZStack {
-                backgroundGradient
-                
+            ZStack {                
                 VStack {
                     if viewModel.products.isEmpty {
                         EmptyStateView(message: "No products available")
