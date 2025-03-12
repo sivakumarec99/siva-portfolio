@@ -68,20 +68,20 @@ struct SplashScreenView: View {
                         // Splash Image with Glow
                         ZStack {
                             // Glow Effect
-                            Image("flash")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: geometry.size.width * 0.8)
-                                .blur(radius: 20)
-                                .opacity(0.5)
-                                .scaleEffect(imageScale * 1.1)
-                            
-                            // Main Image
-                            Image("flash")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: geometry.size.width * 0.8)
-                                .scaleEffect(imageScale)
+//                            Image("flash")
+//                                .resizable()
+//                                .scaledToFit()
+//                                .frame(width: geometry.size.width * 0.8)
+//                                .blur(radius: 20)
+//                                .opacity(0.5)
+//                                .scaleEffect(imageScale * 1.1)
+//                            
+//                            // Main Image
+//                            Image("flash")
+//                                .resizable()
+//                                .scaledToFit()
+//                                .frame(width: geometry.size.width * 0.8)
+//                                .scaleEffect(imageScale)
                         }
                         .opacity(imageOpacity)
                         .blendMode(.plusLighter)

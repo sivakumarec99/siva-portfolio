@@ -6,10 +6,9 @@
 //
 
 import Foundation
-import SwiftUI
 
 struct Alarm: Identifiable, Codable {
-    var id = UUID()
+    var id = UUID()  // ✅ Unique ID for SwiftUI List
     var time: Date
     var label: String
 }

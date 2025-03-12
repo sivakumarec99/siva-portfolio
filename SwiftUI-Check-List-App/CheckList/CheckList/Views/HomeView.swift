@@ -55,6 +55,7 @@ struct HomeView: View {
                             .foregroundColor(.blue)
                             .padding()
                     }
+                   
                     Button(action: { showAddAlarmView = true }) {
                         Image(systemName: "alarm.fill") // ⏰ Alarm Icon
                             .font(.system(size: 30))
@@ -62,7 +63,6 @@ struct HomeView: View {
                             .padding()
                     }
                     
-                    Spacer()
                 }
                 .background(Color(UIColor.systemBackground))
                 .shadow(radius: 3)
@@ -85,7 +85,7 @@ struct HomeView: View {
                 ScrollView {
                     VStack(spacing: 20) {
                         if selectedTab == .alarms {
-                            AlarmListView(alarmManager: alarmManager)
+                            AlarmListView()
                         } else {
                             Text("\(selectedTab.rawValue) Content")
                         }
