@@ -166,6 +166,22 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		011B041B2D8468FE0086605C /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				011B03E22D84029F0086605C /* ProfileView.swift */,
+				011B04152D8411510086605C /* ProfileEditView.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		011B041C2D846B880086605C /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
 		01E225812D801533008E3AE0 = {
 			isa = PBXGroup;
 			children = (
@@ -304,14 +320,14 @@
 		01E2260B2D804EC4008E3AE0 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				011B041C2D846B880086605C /* TabBar */,
+				011B041B2D8468FE0086605C /* Profile */,
 				01E226172D80660E008E3AE0 /* HomeView.swift */,
 				01E2260A2D804EC4008E3AE0 /* LoginView.swift */,
 				01E2261D2D8073D4008E3AE0 /* AddAlarmView.swift */,
 				01E2261F2D8073F4008E3AE0 /* AlarmListView.swift */,
 				011B03DC2D81C7EA0086605C /* AlaremBackgroundPicker.swift */,
 				011B03DE2D83F8540086605C /* OnboardingView.swift */,
-				011B03E22D84029F0086605C /* ProfileView.swift */,
-				011B04152D8411510086605C /* ProfileEditView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
