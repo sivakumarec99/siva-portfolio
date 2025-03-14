@@ -113,7 +113,7 @@ struct HomeView: View {
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
             }
             .sheet(isPresented: $showProfileDetails) {
-                ProfileDetailsView()
+                ProfileView()
             }
             .sheet(isPresented: $showNewBlockCreation) {
                 NewBlockView()
@@ -143,25 +143,6 @@ struct TopicCard: View {
                 .fill(isSelected ? topic.color : Color(UIColor.systemBackground))
                 .shadow(color: topic.color.opacity(0.3), radius: 5)
         )
-    }
-}
-
-struct ProfileDetailsView: View {
-    @Environment(\.dismiss) private var dismiss
-    
-    var body: some View {
-        NavigationView {
-            Text("Profile Details")
-                .navigationTitle("Profile")
-                .navigationBarTitleDisplayMode(.inline)
-                .toolbar {
-                    ToolbarItem(placement: .navigationBarTrailing) {
-                        Button("Done") {
-                            dismiss()
-                        }
-                    }
-                }
-        }
     }
 }
 
