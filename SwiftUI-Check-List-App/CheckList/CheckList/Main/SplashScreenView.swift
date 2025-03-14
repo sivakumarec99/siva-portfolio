@@ -1,6 +1,8 @@
 import SwiftUI
 
 struct SplashScreenView: View {
+    @AppStorage("hasSeenOnboarding") private var hasSeenOnboarding: Bool = false
+
     @State private var isActive = false
     @State private var size = 0.8
     @State private var opacity = 0.5
@@ -23,7 +25,11 @@ struct SplashScreenView: View {
     
     var body: some View {
         if isActive {
-            LoginView()
+            if hasSeenOnboarding {
+                HomeView()
+            } else {
+                OnboardingView()
+            }
         } else {
             GeometryReader { geometry in
                 ZStack {

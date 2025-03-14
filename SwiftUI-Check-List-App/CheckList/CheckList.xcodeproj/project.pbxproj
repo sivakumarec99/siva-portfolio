@@ -32,6 +32,7 @@
 		011B03D12D818CA50086605C /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 011B03D02D818CA50086605C /* FirebaseStorageCombine-Community */; };
 		011B03D32D818CA50086605C /* FirebaseVertexAI in Frameworks */ = {isa = PBXBuildFile; productRef = 011B03D22D818CA50086605C /* FirebaseVertexAI */; };
 		011B03DD2D81C7EA0086605C /* AlaremBackgroundPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011B03DC2D81C7EA0086605C /* AlaremBackgroundPicker.swift */; };
+		011B03DF2D83F8540086605C /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011B03DE2D83F8540086605C /* OnboardingView.swift */; };
 		01E2258E2D801533008E3AE0 /* CheckListApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E2258D2D801533008E3AE0 /* CheckListApp.swift */; };
 		01E225922D801536008E3AE0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 01E225912D801536008E3AE0 /* Assets.xcassets */; };
 		01E225952D801536008E3AE0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 01E225942D801536008E3AE0 /* Preview Assets.xcassets */; };
@@ -73,6 +74,7 @@
 
 /* Begin PBXFileReference section */
 		011B03DC2D81C7EA0086605C /* AlaremBackgroundPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlaremBackgroundPicker.swift; sourceTree = "<group>"; };
+		011B03DE2D83F8540086605C /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		01E2258A2D801533008E3AE0 /* CheckList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CheckList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		01E2258D2D801533008E3AE0 /* CheckListApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckListApp.swift; sourceTree = "<group>"; };
 		01E225912D801536008E3AE0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -294,6 +296,7 @@
 				01E2261D2D8073D4008E3AE0 /* AddAlarmView.swift */,
 				01E2261F2D8073F4008E3AE0 /* AlarmListView.swift */,
 				011B03DC2D81C7EA0086605C /* AlaremBackgroundPicker.swift */,
+				011B03DE2D83F8540086605C /* OnboardingView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -471,6 +474,7 @@
 				01E226202D8073F4008E3AE0 /* AlarmListView.swift in Sources */,
 				011B03DD2D81C7EA0086605C /* AlaremBackgroundPicker.swift in Sources */,
 				01E225FC2D803CEC008E3AE0 /* AuthenticationService.swift in Sources */,
+				011B03DF2D83F8540086605C /* OnboardingView.swift in Sources */,
 				01E2261E2D8073D4008E3AE0 /* AddAlarmView.swift in Sources */,
 				01E2261A2D806EF2008E3AE0 /* Alarm.swift in Sources */,
 			);
