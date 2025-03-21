@@ -10,10 +10,23 @@ import UIKit
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
+    var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        window = UIWindow(frame: UIScreen.main.bounds)
+        
+        let hasSeenOnboarding = UserDefaults.standard.bool(forKey: "hasSeenOnboarding")
+        
+        if hasSeenOnboarding {
+            // Show the Main View Controller directly
+            window?.rootViewController = UINavigationController(rootViewController: ViewController())
+        } else {
+            // Show the Onboarding Screen
+            window?.rootViewController = OnboardingViewController()
+        }
+        
+        window?.makeKeyAndVisible()
         return true
     }
 
