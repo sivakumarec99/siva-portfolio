@@ -10,10 +10,10 @@ import UIKit
 class OnboardingViewController: UIViewController {
     
     private let slides: [OnboardingSlide] = [
-        OnboardingSlide(imageName: "slide1", title: "All your favorites", description: "Get all your loved foods in one once place,\nyou just place the orer we do the rest"),
-        OnboardingSlide(imageName: "slide2", title: "All your favorites", description: "Get all your loved foods in one once place,/nyou just place the orer we do the rest."),
-        OnboardingSlide(imageName: "slide3", title: "Order from choosen chef", description: "Get all your loved foods in one once place,/nyou just place the orer we do the rest"),
-        OnboardingSlide(imageName: "slide4", title: "Get Started", description: "Get all your loved foods in one once place,/nyou just place the orer we do the rest")
+        OnboardingSlide(imageName: "image-pot", title: "All your favorites", description: "Get all your loved foods in one once place,\nyou just place the orer we do the rest"),
+        OnboardingSlide(imageName: "image-pot", title: "All your favorites", description: "Get all your loved foods in one once place,/nyou just place the orer we do the rest."),
+        OnboardingSlide(imageName: "image-pot", title: "Order from choosen chef", description: "Get all your loved foods in one once place,/nyou just place the orer we do the rest"),
+        OnboardingSlide(imageName: "image-pot", title: "Get Started", description: "Get all your loved foods in one once place,/nyou just place the orer we do the rest")
     ]
     
     private var pageViewController: UIPageViewController!
@@ -26,7 +26,6 @@ class OnboardingViewController: UIViewController {
         button.backgroundColor = .systemBlue
         button.setTitleColor(.white, for: .normal)
         button.layer.cornerRadius = 8
-        button.addTarget(self, action: #selector(nextButtonTapped), for: .touchUpInside)
         return button
     }()
     
@@ -35,7 +34,6 @@ class OnboardingViewController: UIViewController {
         button.setTitle("Skip", for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 16)
         button.setTitleColor(.gray, for: .normal)
-        button.addTarget(self, action: #selector(skipButtonTapped), for: .touchUpInside)
         return button
     }()
     
@@ -48,13 +46,18 @@ class OnboardingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        view.backgroundColor = .red
         
         setupPageViewController()
         setupButtons()
         setupPageControl()
+        actions()
     }
-    
+    func actions(){
+        nextButton.addTarget(self, action: #selector(nextButtonTapped), for: .touchUpInside)
+        skipButton.addTarget(self, action: #selector(skipButtonTapped), for: .touchUpInside)
+        //
+    }
     private func setupPageViewController() {
         pageViewController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
         pageViewController.dataSource = self
@@ -73,7 +76,7 @@ class OnboardingViewController: UIViewController {
             pageViewController.view.topAnchor.constraint(equalTo: view.topAnchor),
             pageViewController.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             pageViewController.view.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            pageViewController.view.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -100)
+            pageViewController.view.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
     }
     
@@ -118,9 +121,10 @@ class OnboardingViewController: UIViewController {
             UserDefaults.standard.synchronize()
             
             // Navigate to MainViewController
-            let mainVC = UINavigationController(rootViewController: ViewController())
-            mainVC.modalPresentationStyle = .fullScreen
-            present(mainVC, animated: true, completion: nil)
+//            let mainVC = UINavigationController(rootViewController: ViewController())
+//            mainVC.modalPresentationStyle = .fullScreen
+//            present(mainVC, animated: true, completion: nil)
+            dismiss(animated: true, completion: nil) // Go back to main screen
         }
     }
     @objc private func skipButtonTapped() {
@@ -132,8 +136,12 @@ class OnboardingViewController: UIViewController {
     
     private func viewControllerForIndex(_ index: Int) -> OnboardingSlideViewController? {
         guard index >= 0 && index < slides.count else { return nil }
+        
         let slideVC = OnboardingSlideViewController()
         slideVC.slide = slides[index]
+        
+        print("Loading slide: \(slides[index].title)") // ✅ Debugging
+        
         return slideVC
     }
 }

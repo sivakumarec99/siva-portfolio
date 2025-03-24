@@ -7,16 +7,74 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "D43015F6-1E95-4308-9894-ADA8DB315BE6"
+            uuid = "86703157-99BC-424A-961C-629ED42D2C60"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "CkaeStore/Main/AppDelegate.swift"
+            filePath = "CkaeStore/OnPordingView/Views/OnboardingViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "23"
-            endingLineNumber = "23"
-            landmarkName = "application(_:didFinishLaunchingWithOptions:)"
+            startingLineNumber = "159"
+            endingLineNumber = "159"
+            landmarkName = "pageViewController(_:viewControllerAfter:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "86703157-99BC-424A-961C-629ED42D2C60 - 700d4500a483f5a5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CkaeStore.OnboardingViewController.pageViewController(_: __C.UIPageViewController, viewControllerAfter: __C.UIViewController) -&gt; Swift.Optional&lt;__C.UIViewController&gt;"
+                  moduleName = "CkaeStore"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jidtp1408/Documents/Git_1703/siva-portfolio/CakeStore/CkaeStore/CkaeStore/OnPordingView/Views/OnboardingViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "159"
+                  endingLineNumber = "159">
+               </Location>
+               <Location
+                  uuid = "86703157-99BC-424A-961C-629ED42D2C60 - 4f5d2e467fe66251"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (CkaeStore.OnboardingSlide) -&gt; Swift.Bool in CkaeStore.OnboardingViewController.pageViewController(_: __C.UIPageViewController, viewControllerAfter: __C.UIViewController) -&gt; Swift.Optional&lt;__C.UIViewController&gt;"
+                  moduleName = "CkaeStore"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jidtp1408/Documents/Git_1703/siva-portfolio/CakeStore/CkaeStore/CkaeStore/OnPordingView/Views/OnboardingViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "159"
+                  endingLineNumber = "159">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.ExceptionBreakpoint">
+         <BreakpointContent
+            uuid = "3F9300B4-00C3-4B86-B7C1-C891E6C72744"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            breakpointStackSelectionBehavior = "1"
+            scope = "1"
+            stopOnStyle = "0">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3BFA823A-4DD1-404C-BED6-32A0E9888F58"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CkaeStore/OnPordingView/Views/OnboardingViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "143"
+            endingLineNumber = "143"
+            landmarkName = "viewControllerForIndex(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

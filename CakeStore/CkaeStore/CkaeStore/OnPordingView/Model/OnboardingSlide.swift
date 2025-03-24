@@ -7,7 +7,8 @@
 
 import Foundation
 
-struct OnboardingSlide {
+struct OnboardingSlide: Identifiable {
+    let id = UUID()
     let imageName: String
     let title: String
     let description: String
