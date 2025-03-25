@@ -36,6 +36,11 @@
 		01B2FD742D92AE1800F4FF2C /* LocationPermissionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B2FD732D92AE1800F4FF2C /* LocationPermissionView.swift */; };
 		01B2FD7D2D92CF6600F4FF2C /* SellerDashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B2FD7C2D92CF6600F4FF2C /* SellerDashboardView.swift */; };
 		01B2FD802D92CF8E00F4FF2C /* BuyerDashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B2FD7F2D92CF8E00F4FF2C /* BuyerDashboardView.swift */; };
+		01B2FD842D92E02C00F4FF2C /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B2FD832D92E02C00F4FF2C /* HomeView.swift */; };
+		01B2FD882D92E1FA00F4FF2C /* OrdersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B2FD872D92E1FA00F4FF2C /* OrdersView.swift */; };
+		01B2FD8C2D92E22300F4FF2C /* AddCakeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B2FD8B2D92E22300F4FF2C /* AddCakeView.swift */; };
+		01B2FD902D92E24E00F4FF2C /* NotificationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B2FD8F2D92E24E00F4FF2C /* NotificationsView.swift */; };
+		01B2FD952D92E27600F4FF2C /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B2FD942D92E27600F4FF2C /* ProfileView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +90,11 @@
 		01B2FD732D92AE1800F4FF2C /* LocationPermissionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPermissionView.swift; sourceTree = "<group>"; };
 		01B2FD7C2D92CF6600F4FF2C /* SellerDashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerDashboardView.swift; sourceTree = "<group>"; };
 		01B2FD7F2D92CF8E00F4FF2C /* BuyerDashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyerDashboardView.swift; sourceTree = "<group>"; };
+		01B2FD832D92E02C00F4FF2C /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		01B2FD872D92E1FA00F4FF2C /* OrdersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersView.swift; sourceTree = "<group>"; };
+		01B2FD8B2D92E22300F4FF2C /* AddCakeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCakeView.swift; sourceTree = "<group>"; };
+		01B2FD8F2D92E24E00F4FF2C /* NotificationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsView.swift; sourceTree = "<group>"; };
+		01B2FD942D92E27600F4FF2C /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -330,6 +340,11 @@
 		01B2FD782D92CF2B00F4FF2C /* Shell */ = {
 			isa = PBXGroup;
 			children = (
+				01B2FD912D92E25A00F4FF2C /* Profile */,
+				01B2FD8D2D92E23700F4FF2C /* Notification */,
+				01B2FD892D92E20F00F4FF2C /* Add */,
+				01B2FD852D92E1DA00F4FF2C /* Orders */,
+				01B2FD812D92E01300F4FF2C /* Home */,
 				01B2FD792D92CF3400F4FF2C /* DashBoard */,
 			);
 			path = Shell;
@@ -363,6 +378,86 @@
 			isa = PBXGroup;
 			children = (
 				01B2FD7F2D92CF8E00F4FF2C /* BuyerDashboardView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		01B2FD812D92E01300F4FF2C /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				01B2FD822D92E01D00F4FF2C /* View */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		01B2FD822D92E01D00F4FF2C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				01B2FD832D92E02C00F4FF2C /* HomeView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		01B2FD852D92E1DA00F4FF2C /* Orders */ = {
+			isa = PBXGroup;
+			children = (
+				01B2FD862D92E1E300F4FF2C /* View */,
+			);
+			path = Orders;
+			sourceTree = "<group>";
+		};
+		01B2FD862D92E1E300F4FF2C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				01B2FD872D92E1FA00F4FF2C /* OrdersView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		01B2FD892D92E20F00F4FF2C /* Add */ = {
+			isa = PBXGroup;
+			children = (
+				01B2FD8A2D92E21800F4FF2C /* View */,
+			);
+			path = Add;
+			sourceTree = "<group>";
+		};
+		01B2FD8A2D92E21800F4FF2C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				01B2FD8B2D92E22300F4FF2C /* AddCakeView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		01B2FD8D2D92E23700F4FF2C /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+				01B2FD8E2D92E24200F4FF2C /* View */,
+			);
+			path = Notification;
+			sourceTree = "<group>";
+		};
+		01B2FD8E2D92E24200F4FF2C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				01B2FD8F2D92E24E00F4FF2C /* NotificationsView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		01B2FD912D92E25A00F4FF2C /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				01B2FD922D92E26100F4FF2C /* View */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		01B2FD922D92E26100F4FF2C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				01B2FD942D92E27600F4FF2C /* ProfileView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -513,17 +608,22 @@
 			files = (
 				012B682D2D8D896600C910D2 /* OnboardingSlideViewController.swift in Sources */,
 				012B682E2D8D896600C910D2 /* OnboardingViewController.swift in Sources */,
+				01B2FD8C2D92E22300F4FF2C /* AddCakeView.swift in Sources */,
+				01B2FD882D92E1FA00F4FF2C /* OrdersView.swift in Sources */,
 				012B68292D8D892B00C910D2 /* OnboardingSlide.swift in Sources */,
+				01B2FD902D92E24E00F4FF2C /* NotificationsView.swift in Sources */,
 				01B2FD742D92AE1800F4FF2C /* LocationPermissionView.swift in Sources */,
 				01B2FD7D2D92CF6600F4FF2C /* SellerDashboardView.swift in Sources */,
 				01B2FD662D92787500F4FF2C /* LoginView.swift in Sources */,
 				01B2FD4D2D913D7B00F4FF2C /* Onboarding.swift in Sources */,
 				01B2FD5E2D91771C00F4FF2C /* LoginViewController.swift in Sources */,
 				012B67EF2D8D82A500C910D2 /* ViewController.swift in Sources */,
+				01B2FD952D92E27600F4FF2C /* ProfileView.swift in Sources */,
 				01B2FD6C2D92795500F4FF2C /* LoginManager.swift in Sources */,
 				01B2FD722D92ACF100F4FF2C /* LocationManager.swift in Sources */,
 				01B2FD802D92CF8E00F4FF2C /* BuyerDashboardView.swift in Sources */,
 				012B67EB2D8D82A500C910D2 /* AppDelegate.swift in Sources */,
+				01B2FD842D92E02C00F4FF2C /* HomeView.swift in Sources */,
 				01B2FD692D92792300F4FF2C /* UserModel.swift in Sources */,
 				012B67ED2D8D82A500C910D2 /* SceneDelegate.swift in Sources */,
 			);
