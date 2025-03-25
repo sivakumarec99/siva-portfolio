@@ -28,6 +28,14 @@
 		01B2FD5E2D91771C00F4FF2C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B2FD5D2D91771C00F4FF2C /* LoginViewController.swift */; };
 		01B2FD602D91772800F4FF2C /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01B2FD5F2D91772800F4FF2C /* Login.storyboard */; };
 		01B2FD632D91778400F4FF2C /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 01B2FD622D91778400F4FF2C /* GoogleSignIn */; };
+		01B2FD662D92787500F4FF2C /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B2FD652D92787500F4FF2C /* LoginView.swift */; };
+		01B2FD692D92792300F4FF2C /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B2FD682D92792300F4FF2C /* UserModel.swift */; };
+		01B2FD6C2D92795500F4FF2C /* LoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B2FD6B2D92795500F4FF2C /* LoginManager.swift */; };
+		01B2FD6E2D927B7200F4FF2C /* LoginManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B2FD6D2D927B7200F4FF2C /* LoginManagerTests.swift */; };
+		01B2FD722D92ACF100F4FF2C /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B2FD712D92ACF100F4FF2C /* LocationManager.swift */; };
+		01B2FD742D92AE1800F4FF2C /* LocationPermissionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B2FD732D92AE1800F4FF2C /* LocationPermissionView.swift */; };
+		01B2FD7D2D92CF6600F4FF2C /* SellerDashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B2FD7C2D92CF6600F4FF2C /* SellerDashboardView.swift */; };
+		01B2FD802D92CF8E00F4FF2C /* BuyerDashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B2FD7F2D92CF8E00F4FF2C /* BuyerDashboardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +77,14 @@
 		01B2FD4F2D91752200F4FF2C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		01B2FD5D2D91771C00F4FF2C /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		01B2FD5F2D91772800F4FF2C /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		01B2FD652D92787500F4FF2C /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		01B2FD682D92792300F4FF2C /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		01B2FD6B2D92795500F4FF2C /* LoginManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginManager.swift; sourceTree = "<group>"; };
+		01B2FD6D2D927B7200F4FF2C /* LoginManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginManagerTests.swift; sourceTree = "<group>"; };
+		01B2FD712D92ACF100F4FF2C /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		01B2FD732D92AE1800F4FF2C /* LocationPermissionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPermissionView.swift; sourceTree = "<group>"; };
+		01B2FD7C2D92CF6600F4FF2C /* SellerDashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerDashboardView.swift; sourceTree = "<group>"; };
+		01B2FD7F2D92CF8E00F4FF2C /* BuyerDashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyerDashboardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +140,9 @@
 		012B67E92D8D82A500C910D2 /* CkaeStore */ = {
 			isa = PBXGroup;
 			children = (
+				01B2FD782D92CF2B00F4FF2C /* Shell */,
+				01B2FD772D92CF1F00F4FF2C /* Buy */,
+				01B2FD6F2D92ACC100F4FF2C /* Location */,
 				01B2FD592D9176D400F4FF2C /* LoginScreen */,
 				012B681B2D8D884A00C910D2 /* OnPordingView */,
 				012B681A2D8D883100C910D2 /* Main */,
@@ -141,6 +160,7 @@
 			isa = PBXGroup;
 			children = (
 				012B68012D8D82A700C910D2 /* CkaeStoreTests.swift */,
+				01B2FD6D2D927B7200F4FF2C /* LoginManagerTests.swift */,
 			);
 			path = CkaeStoreTests;
 			sourceTree = "<group>";
@@ -225,6 +245,9 @@
 		01B2FD5B2D9176F600F4FF2C /* View */ = {
 			isa = PBXGroup;
 			children = (
+				01B2FD6A2D92794000F4FF2C /* ViewModel */,
+				01B2FD672D92791500F4FF2C /* Model */,
+				01B2FD642D92786500F4FF2C /* SwiftUI */,
 				01B2FD5C2D91770100F4FF2C /* UiKit */,
 			);
 			path = View;
@@ -237,6 +260,111 @@
 				01B2FD5F2D91772800F4FF2C /* Login.storyboard */,
 			);
 			path = UiKit;
+			sourceTree = "<group>";
+		};
+		01B2FD642D92786500F4FF2C /* SwiftUI */ = {
+			isa = PBXGroup;
+			children = (
+				01B2FD652D92787500F4FF2C /* LoginView.swift */,
+			);
+			path = SwiftUI;
+			sourceTree = "<group>";
+		};
+		01B2FD672D92791500F4FF2C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				01B2FD682D92792300F4FF2C /* UserModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		01B2FD6A2D92794000F4FF2C /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				01B2FD6B2D92795500F4FF2C /* LoginManager.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		01B2FD6F2D92ACC100F4FF2C /* Location */ = {
+			isa = PBXGroup;
+			children = (
+				01B2FD752D92AE2000F4FF2C /* View */,
+				01B2FD702D92ACD800F4FF2C /* ViewModel */,
+			);
+			path = Location;
+			sourceTree = "<group>";
+		};
+		01B2FD702D92ACD800F4FF2C /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				01B2FD712D92ACF100F4FF2C /* LocationManager.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		01B2FD752D92AE2000F4FF2C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				01B2FD762D92AE2D00F4FF2C /* SwiftUI */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		01B2FD762D92AE2D00F4FF2C /* SwiftUI */ = {
+			isa = PBXGroup;
+			children = (
+				01B2FD732D92AE1800F4FF2C /* LocationPermissionView.swift */,
+			);
+			path = SwiftUI;
+			sourceTree = "<group>";
+		};
+		01B2FD772D92CF1F00F4FF2C /* Buy */ = {
+			isa = PBXGroup;
+			children = (
+				01B2FD7A2D92CF4200F4FF2C /* DashBoard */,
+			);
+			path = Buy;
+			sourceTree = "<group>";
+		};
+		01B2FD782D92CF2B00F4FF2C /* Shell */ = {
+			isa = PBXGroup;
+			children = (
+				01B2FD792D92CF3400F4FF2C /* DashBoard */,
+			);
+			path = Shell;
+			sourceTree = "<group>";
+		};
+		01B2FD792D92CF3400F4FF2C /* DashBoard */ = {
+			isa = PBXGroup;
+			children = (
+				01B2FD7B2D92CF4D00F4FF2C /* View */,
+			);
+			path = DashBoard;
+			sourceTree = "<group>";
+		};
+		01B2FD7A2D92CF4200F4FF2C /* DashBoard */ = {
+			isa = PBXGroup;
+			children = (
+				01B2FD7E2D92CF7C00F4FF2C /* View */,
+			);
+			path = DashBoard;
+			sourceTree = "<group>";
+		};
+		01B2FD7B2D92CF4D00F4FF2C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				01B2FD7C2D92CF6600F4FF2C /* SellerDashboardView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		01B2FD7E2D92CF7C00F4FF2C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				01B2FD7F2D92CF8E00F4FF2C /* BuyerDashboardView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -386,10 +514,17 @@
 				012B682D2D8D896600C910D2 /* OnboardingSlideViewController.swift in Sources */,
 				012B682E2D8D896600C910D2 /* OnboardingViewController.swift in Sources */,
 				012B68292D8D892B00C910D2 /* OnboardingSlide.swift in Sources */,
+				01B2FD742D92AE1800F4FF2C /* LocationPermissionView.swift in Sources */,
+				01B2FD7D2D92CF6600F4FF2C /* SellerDashboardView.swift in Sources */,
+				01B2FD662D92787500F4FF2C /* LoginView.swift in Sources */,
 				01B2FD4D2D913D7B00F4FF2C /* Onboarding.swift in Sources */,
 				01B2FD5E2D91771C00F4FF2C /* LoginViewController.swift in Sources */,
 				012B67EF2D8D82A500C910D2 /* ViewController.swift in Sources */,
+				01B2FD6C2D92795500F4FF2C /* LoginManager.swift in Sources */,
+				01B2FD722D92ACF100F4FF2C /* LocationManager.swift in Sources */,
+				01B2FD802D92CF8E00F4FF2C /* BuyerDashboardView.swift in Sources */,
 				012B67EB2D8D82A500C910D2 /* AppDelegate.swift in Sources */,
+				01B2FD692D92792300F4FF2C /* UserModel.swift in Sources */,
 				012B67ED2D8D82A500C910D2 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -399,6 +534,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				012B68022D8D82A700C910D2 /* CkaeStoreTests.swift in Sources */,
+				01B2FD6E2D927B7200F4FF2C /* LoginManagerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -585,7 +721,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.sivakumar.CkaeStore;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sivakumar.cakestore;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -613,7 +749,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.sivakumar.CkaeStore;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sivakumar.cakestore;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

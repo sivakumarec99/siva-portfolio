@@ -4,11 +4,11 @@
 //
 //  Created by JIDTP1408 on 24/03/25.
 //
-
 import UIKit
 import FirebaseAuth
 import FirebaseCore
 import GoogleSignIn
+//import FBSDKLoginKit
 import AuthenticationServices
 
 class LoginViewController: UIViewController {
@@ -19,17 +19,26 @@ class LoginViewController: UIViewController {
     }
 
     private func setupUI() {
-        view.backgroundColor = UIColor.systemBackground
+        // ✅ Background Gradient
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.colors = [UIColor.orange.cgColor, UIColor.red.cgColor]
+        gradientLayer.startPoint = CGPoint(x: 0, y: 0)
+        gradientLayer.endPoint = CGPoint(x: 1, y: 1)
+        gradientLayer.frame = view.bounds
+        view.layer.insertSublayer(gradientLayer, at: 0)
 
+        // ✅ App Title
         let titleLabel = UILabel()
         titleLabel.text = "Welcome to Cake World!"
         titleLabel.font = UIFont.boldSystemFont(ofSize: 28)
+        titleLabel.textColor = .white
         titleLabel.textAlignment = .center
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
 
-        let googleButton = createSocialButton(title: "Sign in with Google", color: .red, action: #selector(signInWithGoogle))
-        let facebookButton = createSocialButton(title: "Sign in with Facebook", color: .blue, action: #selector(signInWithFacebook))
-        let appleButton = createSocialButton(title: "Sign in with Apple", color: .black, action: #selector(signInWithApple))
+        // ✅ Social Buttons
+        let googleButton = createSocialButton(title: "Sign in with Google", color: .white, textColor: .black, action: #selector(signInWithGoogle))
+        let facebookButton = createSocialButton(title: "Sign in with Facebook", color: .blue, textColor: .white, action: #selector(signInWithFacebook))
+        let appleButton = createSocialButton(title: "Sign in with Apple", color: .black, textColor: .white, action: #selector(signInWithApple))
 
         view.addSubview(titleLabel)
         view.addSubview(googleButton)
@@ -42,26 +51,26 @@ class LoginViewController: UIViewController {
 
             googleButton.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 40),
             googleButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            googleButton.widthAnchor.constraint(equalToConstant: 250),
+            googleButton.widthAnchor.constraint(equalToConstant: 280),
             googleButton.heightAnchor.constraint(equalToConstant: 50),
 
             facebookButton.topAnchor.constraint(equalTo: googleButton.bottomAnchor, constant: 20),
             facebookButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            facebookButton.widthAnchor.constraint(equalToConstant: 250),
+            facebookButton.widthAnchor.constraint(equalToConstant: 280),
             facebookButton.heightAnchor.constraint(equalToConstant: 50),
 
             appleButton.topAnchor.constraint(equalTo: facebookButton.bottomAnchor, constant: 20),
             appleButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            appleButton.widthAnchor.constraint(equalToConstant: 250),
+            appleButton.widthAnchor.constraint(equalToConstant: 280),
             appleButton.heightAnchor.constraint(equalToConstant: 50),
         ])
     }
 
-    private func createSocialButton(title: String, color: UIColor, action: Selector) -> UIButton {
+    private func createSocialButton(title: String, color: UIColor, textColor: UIColor, action: Selector) -> UIButton {
         let button = UIButton(type: .system)
         button.setTitle(title, for: .normal)
         button.backgroundColor = color
-        button.setTitleColor(.white, for: .normal)
+        button.setTitleColor(textColor, for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
         button.layer.cornerRadius = 10
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -80,14 +89,13 @@ class LoginViewController: UIViewController {
 //            }
 //            guard let authentication = user?.authentication else { return }
 //            let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken!, accessToken: authentication.accessToken)
-//
 //            self.authenticateWithFirebase(credential)
 //        }
     }
 
     // ✅ Facebook Sign-In
     @objc private func signInWithFacebook() {
-//        let loginManager = LoginManager()
+ //       let loginManager = LoginManager()
 //        loginManager.logIn(permissions: ["email"], from: self) { result, error in
 //            if let error = error {
 //                print("Facebook Login Error: \(error.localizedDescription)")
@@ -95,7 +103,6 @@ class LoginViewController: UIViewController {
 //            }
 //            guard let token = AccessToken.current?.tokenString else { return }
 //            let credential = FacebookAuthProvider.credential(withAccessToken: token)
-//
 //            self.authenticateWithFirebase(credential)
 //        }
     }
