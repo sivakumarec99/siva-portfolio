@@ -59,8 +59,24 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     
     @objc private func openSellerDashboard() {
         print("✅ Seller button clicked")
-        
-        let sellerSwiftUIView = SellerDashboardView()
+        let chefProfile = ChefProfile(
+            id: "12345",
+            fullName: "John Doe",
+            email: "johndoe@example.com",
+            phoneNumber: "+1 234 567 890",
+            profileImageURL: "https://via.placeholder.com/150",
+            bio: "Expert Cake Seller & Baker",
+            experience: 10,
+            specialtyCuisines: ["French", "Italian", "Pastry"],
+            certifications: [],
+            rating: 4.8,
+            totalReviews: 120,
+            socialMediaLinks: [],
+            availability: Availability(isAvailable: true, workingDays: ["Monday", "Wednesday"], startTime: "09:00 AM", endTime: "05:00 PM", availableTimeSlots: []),
+            createdAt: Date(),
+            updatedAt: Date()
+        )
+        let sellerSwiftUIView = SellerDashboardView(chefProfile: chefProfile)
         let hostingController = UIHostingController(rootView: sellerSwiftUIView)
 
         if let navController = navigationController {

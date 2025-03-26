@@ -8,35 +8,57 @@
 import Foundation
 import CoreLocation
 
+import Foundation
+import CoreLocation
+
 class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     private var locationManager = CLLocationManager()
     
     @Published var locationPermissionGranted: Bool = false
 
-    override init() {
-        super.init()
-        locationManager.delegate = self
-    }
+    @Published var currentAddress: String = "Unknown Address"
+     
+     override init() {
+         super.init()
+         locationManager.delegate = self
+         locationManager.requestWhenInUseAuthorization()
+     }
 
-    /// ✅ Requests location permission only if not already determined
-    func requestLocationPermission() {
-        if locationManager.authorizationStatus == .notDetermined {
-            DispatchQueue.main.async { // ✅ Ensures UI updates remain responsive
-                self.locationManager.requestWhenInUseAuthorization()
-            }
-        } else {
-            checkAuthorizationStatus(locationManager.authorizationStatus)
-        }
+     func requestLocation() {
+         locationManager.requestLocation()
+     }
+    func requestLocationPermission(){
+        locationManager.requestWhenInUseAuthorization()
     }
+     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+         guard let location = locations.first else { return }
+         fetchAddress(from: location)
+     }
+
+     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+         print("❌ Location Error: \(error.localizedDescription)")
+     }
+
+     private func fetchAddress(from location: CLLocation) {
+         let geocoder = CLGeocoder()
+         geocoder.reverseGeocodeLocation(location) { (placemarks, error) in
+             if let error = error {
+                 print("❌ Geocoding Error: \(error.localizedDescription)")
+                 return
+             }
+             
+             if let placemark = placemarks?.first {
+                 let addressString = "\(placemark.name ?? ""), \(placemark.locality ?? ""), \(placemark.administrativeArea ?? ""), \(placemark.country ?? "")"
+                 DispatchQueue.main.async {
+                     self.currentAddress = addressString
+                 }
+             }
+         }
+     }
 
     /// ✅ Handles changes in location permission status.
-    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
-        checkAuthorizationStatus(manager.authorizationStatus)
-    }
-
-    /// ✅ Checks authorization status and updates permission state.
-    private func checkAuthorizationStatus(_ status: CLAuthorizationStatus) {
-        DispatchQueue.main.async { // ✅ Ensures UI updates are smooth
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        DispatchQueue.main.async {
             switch status {
             case .authorizedWhenInUse, .authorizedAlways:
                 self.locationPermissionGranted = true
@@ -46,6 +68,7 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
                 print("❌ Location Permission Denied")
             case .notDetermined:
                 print("🚀 Asking for location permission...")
+                self.locationManager.requestWhenInUseAuthorization()
             @unknown default:
                 self.locationPermissionGranted = false
             }

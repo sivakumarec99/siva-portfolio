@@ -9,6 +9,7 @@ import SwiftUI
 
 struct SellerDashboardView: View {
     @State private var selectedTab = 0
+    let chefProfile: ChefProfile  // ✅ Requires a valid `ChefProfile`
     
     var body: some View {
         ZStack {
@@ -37,13 +38,13 @@ struct SellerDashboardView: View {
                     }
                     .tag(3)
 
-                ProfileView()
+                ProfileView(chef: chefProfile)  // ✅ Passes `chefProfile` dynamically
                     .tabItem {
                         TabIconView(icon: "person.fill", title: "Profile", isSelected: selectedTab == 4)
                     }
                     .tag(4)
             }
-            .accentColor(.orange) // ✅ Custom Tab Bar Tint Color
+            .accentColor(.orange)
             .onAppear {
                 UITabBar.appearance().isTranslucent = false
             }
