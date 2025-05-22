@@ -17,16 +17,22 @@ struct EditProfileView: View {
             Form {
                 Section(header: Text("Profile Details")) {
                     TextField("Full Name", text: $chef.fullName)
-                    TextField("Bio", text: $chef.bio ?? "")
+                    
+                    TextField("Bio", text: Binding(
+                        get: { chef.bio ?? "" },
+                        set: { chef.bio = $0 }
+                    ))
                 }
-                
                 Section(header: Text("Contact Info")) {
                     TextField("Phone Number", text: $chef.phoneNumber)
-                    TextField("Email", text: $chef.email ?? "")
+                    TextField("Email", text: Binding(
+                        get: {chef.email ?? ""},
+                        set: {chef.email = $0}
+                    ))
                 }
                 
                 Button("Save Changes") {
-                    try? chef.save()  // ✅ Save to SwiftData
+                  //  try? chef.save()  // ✅ Save to SwiftData
                     dismiss()
                 }
                 .frame(maxWidth: .infinity)

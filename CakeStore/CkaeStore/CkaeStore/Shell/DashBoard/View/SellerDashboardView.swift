@@ -38,7 +38,7 @@ struct SellerDashboardView: View {
                     }
                     .tag(3)
 
-                ProfileView(chef: chefProfile)  // ✅ Passes `chefProfile` dynamically
+                ProfileView()  
                     .tabItem {
                         TabIconView(icon: "person.fill", title: "Profile", isSelected: selectedTab == 4)
                     }

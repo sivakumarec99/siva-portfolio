@@ -94,6 +94,8 @@ struct ProfileDetailsView: View {
             }
         }
         .navigationTitle("Chef Profile")
+        
+    
     }
 }
 
